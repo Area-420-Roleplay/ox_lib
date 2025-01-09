@@ -13,26 +13,27 @@ const useStyles = createStyles((theme) => ({
     width: 300,
     height: 'fit-content',
     backgroundColor: theme.colors.dark[6],
-    color: theme.colors.dark[0],
+    color: ' #171717CC',
     padding: 12,
     borderRadius: theme.radius.sm,
-    fontFamily: 'Roboto',
+    fontFamily: 'Inter',
     boxShadow: theme.shadows.sm,
   },
   title: {
-    fontWeight: 500,
+    fontWeight: 400,
     lineHeight: 'normal',
+    color: '#EBEBEB',
   },
   description: {
     fontSize: 12,
-    color: theme.colors.dark[2],
-    fontFamily: 'Roboto',
+    color: '#EBEBEB',
+    fontFamily: 'Inter',
     lineHeight: 'normal',
   },
   descriptionOnly: {
     fontSize: 14,
-    color: theme.colors.dark[2],
-    fontFamily: 'Roboto',
+    color: '#EBEBEB',
+    fontFamily: 'Inter',
     lineHeight: 'normal',
   },
 }));
@@ -123,16 +124,16 @@ const Notifications: React.FC = () => {
     if (!data.iconColor) {
       switch (data.type) {
         case 'error':
-          iconColor = 'red.6';
+          iconColor = '#DD4D4D';
           break;
         case 'success':
-          iconColor = 'teal.6';
+          iconColor = '#95EF77';
           break;
         case 'warning':
-          iconColor = 'yellow.6';
+          iconColor = '#FFDB0F';
           break;
         default:
-          iconColor = 'blue.6';
+          iconColor = '#95EF77';
           break;
       }
     } else {

@@ -17,18 +17,20 @@ const useStyles = createStyles((theme) => ({
     transform: 'translate(-50%, -50%)',
   },
   sector: {
-    fill: theme.colors.dark[6],
-    color: theme.colors.dark[0],
-
+    fill: ' #171717CC',
+    color: '#fff',
     '&:hover': {
-      fill: theme.fn.primaryColor(),
-      cursor: 'pointer',
+        fill: '#95EF77',
+        transition: 'fill 0.5s ease',
+        cursor: 'pointer',
       '> g > text, > g > svg > path': {
         fill: '#fff',
+        color: 'white',
+        strokeWidth: 2,
       },
     },
     '> g > text': {
-      fill: theme.colors.dark[0],
+      fill: 'white',
       strokeWidth: 0,
     },
   },
@@ -36,13 +38,13 @@ const useStyles = createStyles((theme) => ({
     fill: theme.colors.dark[6],
   },
   centerCircle: {
-    fill: theme.fn.primaryColor(),
+    fill: 'rgba(238, 238, 238)',
     color: '#fff',
-    stroke: theme.colors.dark[6],
-    strokeWidth: 4,
+    stroke: '#95EF77',
+    strokeWidth: 3,
     '&:hover': {
       cursor: 'pointer',
-      fill: theme.colors[theme.primaryColor][theme.fn.primaryShade() - 1],
+      fill: '#95EF77',
     },
   },
   centerIconContainer: {
@@ -53,10 +55,11 @@ const useStyles = createStyles((theme) => ({
     pointerEvents: 'none',
   },
   centerIcon: {
-    color: '#fff',
+    color: ' #171717CC',
   },
 }));
 
+// includes More... button
 const calculateFontSize = (text: string): number => {
   if (text.length > 20) return 10;
   if (text.length > 15) return 12;
@@ -137,6 +140,20 @@ const RadialMenu: React.FC = () => {
 
   return (
     <>
+    {visible && (
+        <div
+          className="overlay"
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'radial-gradient(circle, rgba(19,19,19,0.2) 0%, rgba(19,19,19,0.4) 50%)',
+            zIndex: 0,
+          }}
+        />
+      )}
       <Box
         className={classes.wrapper}
         onContextMenu={async () => {
@@ -145,29 +162,27 @@ const RadialMenu: React.FC = () => {
         }}
       >
         <ScaleFade visible={visible}>
-          <svg
-            style={{ overflow: 'visible' }}
-            width={`${newDimension}px`}
-            height={`${newDimension}px`}
-            viewBox="0 0 350 350"
-            transform="rotate(90)"
-          >
-            {/* Fixed issues with background circle extending the circle when there's less than 3 items */}
-            <g transform="translate(175, 175)">
-              <circle r={175} className={classes.backgroundCircle} />
-            </g>
+            <svg
+                style={{ overflow: 'visible' }}
+                width={`${newDimension}px`}
+                height={`${newDimension}px`}
+                viewBox="0 0 350 350"
+                transform="rotate(90)"
+              >
             {menuItems.map((item, index) => {
+              // Always draw full circle to avoid elipse circles with 2 or less items
               const pieAngle = 360 / (menuItems.length < 3 ? 3 : menuItems.length);
               const angle = degToRad(pieAngle / 2 + 90);
-              const gap = 1;
+              const gap = 4;
               const radius = 175 * 0.65 - gap;
               const sinAngle = Math.sin(angle);
               const cosAngle = Math.cos(angle);
               const iconYOffset = splitTextIntoLines(item.label, 15).length > 3 ? 3 : 0;
               const iconX = 175 + sinAngle * radius;
-              const iconY = 175 + cosAngle * radius + iconYOffset; // Apply the Y offset to iconY
+              const iconY = 175 + cosAngle * radius + iconYOffset;
               const iconWidth = Math.min(Math.max(item.iconWidth || 50, 0), 100);
               const iconHeight = Math.min(Math.max(item.iconHeight || 50, 0), 100);
+              
 
               return (
                 <g
@@ -220,8 +235,9 @@ const RadialMenu: React.FC = () => {
                         </tspan>
                       ))}
                     </text>
+                    </g>
                   </g>
-                </g>
+                
               );
             })}
             <g
@@ -237,7 +253,7 @@ const RadialMenu: React.FC = () => {
                 }
               }}
             >
-              <circle r={28} className={classes.centerCircle} />
+              <circle r={50} className={classes.centerCircle} />
             </g>
           </svg>
           <div className={classes.centerIconContainer}>

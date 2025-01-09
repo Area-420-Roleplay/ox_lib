@@ -7,16 +7,18 @@ const useStyles = createStyles((theme) => ({
     borderTopLeftRadius: theme.radius.md,
     borderTopRightRadius: theme.radius.md,
     backgroundColor: theme.colors.dark[6],
-    height: 60,
-    width: 384,
+    height: 40,
+    width: 350,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    background: 'radial-gradient(circle,rgba(238, 238, 238, 0.8) 0%,rgba(241, 241, 241, 0.8) 80%)',
   },
   heading: {
     fontSize: 24,
+    color:'  #171717CC',
     textTransform: 'uppercase',
-    fontWeight: 500,
+    fontWeight: 600,
   },
 }));
 

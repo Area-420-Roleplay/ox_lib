@@ -6,7 +6,7 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'center',
   },
   input: {
-    backgroundColor: theme.colors.dark[7],
+    backgroundColor:'linear-gradient(" #171717CC" 80%, " #171717CC" 0%);',
     '&:checked': { backgroundColor: theme.colors.dark[2], borderColor: theme.colors.dark[2] },
   },
   inner: {

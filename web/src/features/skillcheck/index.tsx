@@ -28,7 +28,7 @@ const useStyles = createStyles((theme, params: { difficultyOffset: number }) => 
   track: {
     fill: 'transparent',
     stroke: theme.colors.dark[5],
-    strokeWidth: 8,
+    strokeWidth: 11,
     r: 50,
     cx: 250,
     cy: 250,
@@ -41,7 +41,7 @@ const useStyles = createStyles((theme, params: { difficultyOffset: number }) => 
   },
   skillArea: {
     fill: 'transparent',
-    stroke: theme.fn.primaryColor(),
+    stroke:  '#95EF77',
     strokeWidth: 8,
     r: 50,
     cx: 250,
@@ -169,9 +169,9 @@ const SkillCheck: React.FC = () => {
               offset={skillCheck.difficultyOffset}
               multiplier={
                 skillCheck.difficulty === 'easy'
-                  ? 1
+                  ? 0.1
                   : skillCheck.difficulty === 'medium'
-                  ? 1.5
+                  ? 1.0
                   : skillCheck.difficulty === 'hard'
                   ? 1.75
                   : skillCheck.difficulty.speedMultiplier

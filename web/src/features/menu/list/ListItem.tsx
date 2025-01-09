@@ -16,13 +16,13 @@ interface Props {
 const useStyles = createStyles((theme, params: { iconColor?: string }) => ({
   buttonContainer: {
     backgroundColor: theme.colors.dark[6],
-    borderRadius: theme.radius.md,
+    borderRadius: "4px",
     padding: 2,
     height: 60,
     scrollMargin: 8,
     '&:focus': {
-      backgroundColor: theme.colors.dark[4],
-      outline: 'none',
+      outline: '2px solid #95EF77',  // Red outline with 2px width
+      padding: '20px',
     },
   },
   iconImage: {
@@ -41,20 +41,20 @@ const useStyles = createStyles((theme, params: { iconColor?: string }) => ({
   },
   icon: {
     fontSize: 24,
-    color: params.iconColor || theme.colors.dark[2],
+    color: 'white',
   },
   label: {
-    color: theme.colors.dark[2],
+    color: 'white',
     textTransform: 'uppercase',
     fontSize: 12,
     verticalAlign: 'middle',
   },
   chevronIcon: {
     fontSize: 14,
-    color: theme.colors.dark[2],
+    color: 'white',
   },
   scrollIndexValue: {
-    color: theme.colors.dark[2],
+    color: 'white',
     textTransform: 'uppercase',
     fontSize: 14,
   },

@@ -17,10 +17,12 @@ const useStyles = createStyles((theme) => ({
   container: {
     position: 'absolute',
     top: '15%',
-    right: '25%',
+    right: '5%',
     width: 320,
     height: 580,
+    zIndex: 112,
   },
+
   header: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -28,14 +30,17 @@ const useStyles = createStyles((theme) => ({
     gap: 6,
   },
   titleContainer: {
-    borderRadius: 4,
+    borderRadius: "3px",
     flex: '1 85%',
-    backgroundColor: theme.colors.dark[6],
+    background: 'radial-gradient(circle,rgba(238, 238, 238, 0.8) 0%,rgba(241, 241, 241, 0.8) 80%)',
   },
   titleText: {
-    color: theme.colors.dark[0],
     padding: 6,
     textAlign: 'center',
+    fontFamily: "Inter",
+    fontWeight: 600,
+    color:'  #171717CC',
+    fontSize: "17px",
   },
   buttonsContainer: {
     height: 560,
