@@ -149,8 +149,7 @@ type RowInput =
   | ColorProps
   | DateProps
   | DateRangeProps
-  | TimeProps
-  | TextAreaProps;
+  | TimeProps;
 
 type inputDialog = (
   heading: string,
